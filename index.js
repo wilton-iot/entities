@@ -1,5 +1,6 @@
-var encode = require("./lib/encode.js"),
-    decode = require("./lib/decode.js");
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
+var encode = require("entities/lib/encode.js"),
+    decode = require("entities/lib/decode.js");
 
 exports.decode = function(data, level){
 	return (!level || level <= 0 ? decode.XML : decode.HTML)(data);
@@ -31,3 +32,5 @@ exports.decodeHTML5Strict =
 exports.decodeHTMLStrict = decode.HTMLStrict;
 
 exports.escape = encode.escape;
+
+return module.exports;});

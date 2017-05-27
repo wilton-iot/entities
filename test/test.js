@@ -1,6 +1,6 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 var assert = require("assert"),
-    path = require("path"),
-    entities = require("../");
+    entities = require("entities/");
 
 describe("Encode->decode test", function(){
 	var testcases = [
@@ -77,10 +77,9 @@ describe("Decode test", function(){
 var levels = ["xml", "entities"];
 
 describe("Documents", function(){
-	levels
-	.map(function(n){ return path.join("..", "maps", n); })
-	.map(require)
-	.forEach(function(doc, i){
+        var loaded = [require("entities/maps/xml"), require("entities/maps/entities")];
+        for(var i = 0; i < loaded.length; i++) {
+            var doc = loaded[i];
 		describe("Decode", function(){
 			it(levels[i], function(){
 				Object.keys(doc).forEach(function(e){
@@ -110,9 +109,9 @@ describe("Documents", function(){
 				});
 			});
 		});
-	});
+	};
 
-	var legacy = require("../maps/legacy.json");
+	var legacy = require("entities/maps/legacy");
 
 	describe("Legacy", function(){
 		it("should decode", runLegacy);
@@ -166,3 +165,5 @@ describe("Escape", function(){
 		}
 	});
 });
+
+return module.exports;});
