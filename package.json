@@ -49,5 +49,10 @@
       "describe": true,
       "it": true
     }
+  },
+  "wilton": {
+    "excludes": [
+      "test"
+    ]
   }
 }
