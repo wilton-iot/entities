@@ -1,4 +1,4 @@
-define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
+define(function(localRequire, exports, module) { var requireOrig = require; require = localRequire;
 var encode = require("entities/lib/encode.js"),
     decode = require("entities/lib/decode.js");
 
@@ -33,4 +33,4 @@ exports.decodeHTMLStrict = decode.HTMLStrict;
 
 exports.escape = encode.escape;
 
-return module.exports;});
+require = requireOrig;});
